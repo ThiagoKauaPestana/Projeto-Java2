@@ -1,33 +1,31 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Loja {
-    public static void main(String[] args) {
-        int op;
-        Scanner entrada = new Scanner(System.in);
-        CadastroCliente cadastro = new CadastroCliente();
+    private ArrayList<Cliente> clientes;
 
+    public Loja() {
+        clientes = new ArrayList<>();
+    }
 
-        cadastro.cadastrarCliente("Thiago","10420686@mackenzista.com.br", 977809740, 104);
-        cadastro.listarClientes();
+    public void cadastrarCliente(String nome, String email, int telefone, int id) {
+        Cliente novoCliente = new Cliente(nome, email, telefone, id);
+        clientes.add(novoCliente);
+    }
 
-       do {
-        System.out.println("Bem vindo ao QuickShop - Mack");
-        System.out.println("1- Cadastrar Cliente");
-        System.out.println("2- Acessar Loja");
-        System.out.println("3- Sair");
-         System.out.print("\nDigite a Opção: ");
-        op = entrada.nextInt();
-
-        switch (op) {
-            case 1:
-                
-                break;
-        
-            default:
-                break;
+    public void listarClientes() {
+        for (Cliente cliente : clientes) {
+            System.out.println(cliente);
         }
+    }
 
-
-       } while (op != 3);
+    public Cliente verificarCliente(int id) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getID() == id) {
+                System.out.println("Cliente encontrado: " + cliente.getNome());
+                return cliente;
+            }
+        }
+        System.out.println("Cliente não encontrado.");
+        return null;
     }
 }
