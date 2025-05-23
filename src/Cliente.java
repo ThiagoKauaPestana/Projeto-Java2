@@ -28,7 +28,7 @@ public class Cliente {
     }
 
     public String toString() {
-        return "Cliente: " + nome + ", Email: " + email + ", Telefone: " + telefone + ", ID: " + id;
+        return "Cliente: " + nome + " | Email: " + email + " | Telefone: " + telefone + " | ID: " + id;
     }
 
 }
