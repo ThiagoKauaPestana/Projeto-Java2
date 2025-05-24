@@ -50,7 +50,7 @@ public class Pedido {
             produto.reduzirEstoque(quantidade);
             System.out.println("Produto " + produto.getDescricao() + " adicionado ao pedido.");
         } else {
-            System.out.println("Não há estoque suficiente para " + produto.getDescricao() + 
+            System.out.println("Nao ha estoque suficiente para " + produto.getDescricao() + 
                                 ". Quantidade disponível: " + produto.getQuantidade());
     }
 }

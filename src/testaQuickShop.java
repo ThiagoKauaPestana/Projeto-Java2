@@ -10,6 +10,7 @@ public class testaQuickShop {
         int opLoja;
 
 
+        // Usuarios e Produtos previamente cadastrados para a avaliacao do Projeto
         loja.cadastrarCliente("Moises", "Mfilho@gmail.com", 12, 1000);
         loja.cadastrarCliente("Kaua", "Kaua@gmail.com", 13, 2000);
         loja.cadastrarCliente("Gabriel", "Gabriel@gmail.com", 13, 3000);
@@ -26,21 +27,21 @@ public class testaQuickShop {
             System.out.println("4) Sair");
             System.out.print("Digite a opção: ");
             op = entrada.nextInt();
-            entrada.nextLine(); // Consumir quebra de linha
+            entrada.nextLine(); 
 
             switch (op) {
                 case 1:
                     System.out.println("=== CADASTRO DE CLIENTE ===");
-                    System.out.print("Nome: "); // colocar tratamento de erro
+                    System.out.print("Nome: ");
                     String nome = entrada.nextLine();
 
-                    System.out.print("E-Mail: "); // colocar tratamento de erro
+                    System.out.print("E-Mail: "); 
                     String email = entrada.nextLine();
 
-                    System.out.print("Telefone (SEM DDD): "); // colocar tratamento de erro
-                    int telefone = entrada.nextInt();
+                    System.out.print("Telefone (SEM DDD): "); 
+                    int telefone = entrada.nextInt(); 
 
-                    int id = random.nextInt(9000) + 1000; 
+                    int id = random.nextInt(9000) + 1000;
 
                     loja.cadastrarCliente(nome, email, telefone, id);
                     loja.listarClientes();
@@ -74,11 +75,11 @@ public class testaQuickShop {
                             
                                 case 2: 
                                     char continuar;
+                                    Pedido pedido = loja.criarPedido(cliente);
 
                                     do {
                                         System.out.print("\n** NOVO PEDIDO **\n");
                                         loja.listarProdutos();
-                                        Pedido pedido = loja.criarPedido(cliente);
                                         System.out.print("Digite o codigo do produto que deseja: ");
                                         int codigoProd = entrada.nextInt();
 
@@ -106,14 +107,17 @@ public class testaQuickShop {
                                     break;
 
                                     case 3:
-                                        loja.listarPedidos();
+                                        loja.listarPedidosCliente(idLogar);
+                                        break;
 
                                     case 4:
-
+                                        System.out.println("Saindo..");
+                                        break;
                                 default:
                                     break;
                             }
                         } while (opLoja != 4);
+                        break;   
                     
                     } else{
                         System.out.print("Cliente nao localizado.");
@@ -122,16 +126,16 @@ public class testaQuickShop {
 
                 case 3:
                     System.out.println("=== CADASTRO DE PRODUTO ===");
-                    System.out.print("Fabricante: "); // colocar tratamento de erro
+                    System.out.print("Fabricante: "); 
                     String fabricante = entrada.nextLine();
 
-                    System.out.print("Descricao: "); // colocar tratamento de erro
+                    System.out.print("Descricao: "); 
                     String descricao = entrada.nextLine();
 
-                    System.out.print("Preco Unitario: "); // colocar tratamento de erro
+                    System.out.print("Preco Unitario: "); 
                     double precoUnitario = entrada.nextDouble();
 
-                    System.out.print("Quantidade: "); // colocar tratamento de erro
+                    System.out.print("Quantidade: "); 
                     int quantidade = entrada.nextInt(); 
                     entrada.nextLine();
 
@@ -145,7 +149,7 @@ public class testaQuickShop {
                     break;
 
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
+                    System.out.println("Opcao invalida. Tente novamente.");
                     break;
             }
 
