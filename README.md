@@ -1,4 +1,7 @@
 # Projeto Java - N2
+
+NOME: Thiago Kaua Pestana do Amaral   
+TIA: 10420686
 ## Objetivo
 QuickShop: o seu e-commerce preferido 
 Descrição e contexto geral: 
