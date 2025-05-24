@@ -43,9 +43,16 @@ public class Pedido {
 
     }
     public void adicionarItem(Produto produto, int quantidade) {
-        Item item = new Item(produto, quantidade);
-        itens.add(item);
-        total += item.getSubTotal();
+        if (produto.getQuantidade() >= quantidade) {
+            Item item = new Item(produto, quantidade);
+            itens.add(item);
+            total += item.getSubTotal();
+            produto.reduzirEstoque(quantidade);
+            System.out.println("Produto " + produto.getDescricao() + " adicionado ao pedido.");
+        } else {
+            System.out.println("Não há estoque suficiente para " + produto.getDescricao() + 
+                                ". Quantidade disponível: " + produto.getQuantidade());
     }
+}
 
 }

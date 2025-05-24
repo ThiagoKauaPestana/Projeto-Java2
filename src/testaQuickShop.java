@@ -7,6 +7,7 @@ public class testaQuickShop {
         Scanner entrada = new Scanner(System.in);
         Loja loja = new Loja();
         Random random = new Random();
+        int opLoja;
 
 
         loja.cadastrarCliente("Moises", "Mfilho@gmail.com", 12, 1000);
@@ -19,10 +20,10 @@ public class testaQuickShop {
 
         do {
             System.out.println("\n--- QuickShop - Mack ---");
-            System.out.println("1- Cadastrar Cliente");
-            System.out.println("2- Acessar Loja");
-            System.out.println("3- Cadastrar Produto");
-            System.out.println("4- Sair");
+            System.out.println("1) Cadastrar Cliente");
+            System.out.println("2) Acessar Loja");
+            System.out.println("3) Cadastrar Produto");
+            System.out.println("4) Sair");
             System.out.print("Digite a opção: ");
             op = entrada.nextInt();
             entrada.nextLine(); // Consumir quebra de linha
@@ -52,58 +53,67 @@ public class testaQuickShop {
                     int idLogar = entrada.nextInt();
                     Cliente cliente = loja.verificarCliente(idLogar);
                     if (cliente != null){
-                        System.out.println("** QuickShop **"); 
-                        System.out.printf("Bem-vindo, %s!\n", cliente.getNome());
-                        System.out.println("1) Ver Catálogo de Produtos");
-                        System.out.println("2) Fazer Novo Pedido");
-                        System.out.println("3) Ver Meus Pedidos ");
-                        System.out.println("4) Sair ");
-                        System.out.print("Selecione uma opção: ");
-                        op = entrada.nextInt();
 
-                        switch (op) {
-                            case 1:
-                                loja.listarProdutos();
-                                break;
+                        do {
+
                         
-                            case 2: 
-                                char continuar;
+                            System.out.println("** QuickShop **"); 
+                            System.out.printf("Bem-vindo, %s!\n", cliente.getNome());
+                            System.out.println("1) Ver Catálogo de Produtos");
+                            System.out.println("2) Fazer Novo Pedido");
+                            System.out.println("3) Ver Meus Pedidos ");
+                            System.out.println("4) Sair ");
+                            System.out.print("Selecione uma opção: ");
+                            opLoja = entrada.nextInt();
 
-                                do {
-                                    System.out.print("\n** NOVO PEDIDO **\n");
+                            switch (opLoja) {
+                                case 1:
                                     loja.listarProdutos();
-                                    Pedido pedido = loja.criarPedido(cliente);
-                                    System.out.print("Digite o codigo do produto que deseja: ");
-                                    int codigoProd = entrada.nextInt();
+                                    entrada.nextLine();
+                                    break;
+                            
+                                case 2: 
+                                    char continuar;
 
-                                    Produto produto = loja.buscaProdCodigo(codigoProd);
+                                    do {
+                                        System.out.print("\n** NOVO PEDIDO **\n");
+                                        loja.listarProdutos();
+                                        Pedido pedido = loja.criarPedido(cliente);
+                                        System.out.print("Digite o codigo do produto que deseja: ");
+                                        int codigoProd = entrada.nextInt();
 
-                                    if (produto != null) {
-                                        System.out.print("Digite a quantidade: ");
-                                        int quantidade = entrada.nextInt();
+                                        Produto produto = loja.buscaProdCodigo(codigoProd);
 
-                                        
-                                        pedido.adicionarItem(produto, quantidade);
-                                        System.out.printf("Produto %d adicionado ao Pedido.\n", codigoProd);
-                                    } else {
-                                        System.out.println("Produto nao encontrado");
-                                    }
+                                        if (produto != null) {
+                                            System.out.print("Digite a quantidade: ");
+                                            int quantidade = entrada.nextInt();
 
-                                    System.out.print("Deseja adicionar mais itens ao Pedido? (Digite S ou N): ");
-                                    continuar = entrada.next().charAt(0);
+                                            
+                                            pedido.adicionarItem(produto, quantidade);
+                                            
+                                        } else {
+                                            System.out.println("Produto nao encontrado");
+                                        }
 
-
-                                } while(continuar == 's' || continuar == 'S');
-                                
-
-                                System.out.println("** Pedido Finalizado ** ");
-                                break;
+                                        System.out.print("Deseja adicionar mais itens ao Pedido? (Digite S ou N): ");
+                                        continuar = entrada.next().charAt(0);
 
 
+                                    } while(continuar == 's' || continuar == 'S');
+                                    
 
-                            default:
-                                break;
-                        }
+                                    System.out.println("** Pedido Finalizado ** ");
+                                    break;
+
+                                    case 3:
+                                        loja.listarPedidos();
+
+                                    case 4:
+
+                                default:
+                                    break;
+                            }
+                        } while (opLoja != 4);
                     
                     } else{
                         System.out.print("Cliente nao localizado.");

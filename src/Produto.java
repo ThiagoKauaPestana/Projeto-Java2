@@ -38,4 +38,12 @@ public class Produto {
     public String toString() {
         return "Fabricante: " + fabricante + " | Descricao: " + descricao + " | Preco Unitario: " + precoUnitario + " | Quantidade: " + quantidade + " | Codigo: " + codigo;
     }
+
+    public boolean temEstoque(int quantidadeSolicitada) {
+        return this.quantidade >= quantidadeSolicitada;
+    }
+
+    public void reduzirEstoque(int quantidade) {
+        this.quantidade -= quantidade;
+    }
 }
