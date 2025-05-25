@@ -11,9 +11,9 @@ public class testaQuickShop {
 
 
         // Usuarios e Produtos previamente cadastrados para a avaliacao do Projeto
-        loja.cadastrarCliente("Moises", "Mfilho@gmail.com", 12, 1000);
-        loja.cadastrarCliente("Kaua", "Kaua@gmail.com", 13, 2000);
-        loja.cadastrarCliente("Gabriel", "Gabriel@gmail.com", 13, 3000);
+        loja.cadastrarCliente("Moises", "Mfilho@gmail.com", 12, 1000 ,"Rua 1");
+        loja.cadastrarCliente("Kaua", "Kaua@gmail.com", 13, 2000, "Rua 2");
+        loja.cadastrarCliente("Gabriel", "Gabriel@gmail.com", 13, 3000, "Rua 3");
         loja.listarClientes();
         loja.cadastrarProduto("Apple", "IPhone", 5000, 10);
         loja.cadastrarProduto("Samsung", "Galaxy", 5000, 10);
@@ -40,10 +40,15 @@ public class testaQuickShop {
 
                     System.out.print("Telefone (SEM DDD): "); 
                     int telefone = entrada.nextInt(); 
+                    entrada.nextLine();
+                    
+                    System.out.print("Endereco: "); 
+                    String endereco = entrada.nextLine();
 
                     int id = random.nextInt(9000) + 1000;
 
-                    loja.cadastrarCliente(nome, email, telefone, id);
+
+                    loja.cadastrarCliente(nome, email, telefone, id, endereco);
                     loja.listarClientes();
                     System.out.printf("Cadastro realizado com sucesso! Seu ID: %d\n", id);
                     break;

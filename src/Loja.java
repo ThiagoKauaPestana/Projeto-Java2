@@ -11,8 +11,8 @@ public class Loja {
         pedidos = new ArrayList<>();
     }
 
-    public void cadastrarCliente(String nome, String email, int telefone, int id) {
-        Cliente novoCliente = new Cliente(nome, email, telefone, id);
+    public void cadastrarCliente(String nome, String email, int telefone, int id, String endereco) {
+        Cliente novoCliente = new Cliente(nome, email, telefone, id, endereco);
         clientes.add(novoCliente);
     }
 
