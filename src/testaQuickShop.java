@@ -9,7 +9,10 @@ public class testaQuickShop {
         Random random = new Random();
         int opLoja;
 
-
+        // NOME: Thiago Kaua Pestana do Amaral
+        // TIA: 10420686
+        // NOME: Moisés Manoel Dos Santos Filho
+        // TIA: 10419955
         // Usuarios e Produtos previamente cadastrados para a avaliacao do Projeto
         loja.cadastrarCliente("Moises", "Mfilho@gmail.com", 12, 1000 ,"Rua 1");
         loja.cadastrarCliente("Kaua", "Kaua@gmail.com", 13, 2000, "Rua 2");
